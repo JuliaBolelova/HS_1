@@ -1,61 +1,81 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-var $ = require( "jquery" );
+const CopyPlugin = require("copy-webpack-plugin");
+
+let mode = 'development';
+let target = 'web';
+if (process.env.NODE_ENV === 'production') {
+    mode = 'production';
+    target = 'browserslist';
+}
+
+const plugins = [
+    new MiniCssExtractPlugin({
+        filename: 'index.css',
+    }),
+    new HtmlWebpackPlugin({
+        template: './src/index.html',
+    }),
+    new CopyPlugin({
+        patterns: [
+            { from: "src/images", to: "images" },
+        ],
+    }),
+];
 
 module.exports = {
-  entry: './src/index.js',
-  devtool: 'inline-source-map',
-  devServer: {
-    static: './dist',
-    hot: true,
-  },
-  module: {
-    rules: [
-        {
-            test: /\.(png|jpe?g|gif|ico|svg)$/,
-            use:
-              [
-                'file-loader?name=./images/[name].[ext]',
-                {
-                  loader: 'image-webpack-loader',
-                  options: {
-                    mozjpeg: {
-                      progressive: true,
-                      quality: 65
+    mode,
+    target,
+    plugins,
+    devtool: 'source-map',
+    entry: './src/index.js',
+    devServer: {
+        hot: true,
+        compress: true,
+        port: 9000,
+        watchFiles: ["./src/*"],
+        open: true,
+        static: {
+            directory: path.join(__dirname, 'dist')
+        }
+    },
+
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        assetModuleFilename: 'assets/[hash][ext][query]',
+        clean: true,
+    },
+
+    module: {
+        rules: [
+            { test: /\.(html)$/, use: ['html-loader'] },
+            {
+                test: /\.(css)$/i,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                ],
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg|webp|ico)$/i,
+                type: mode === 'production' ? 'asset' : 'asset/resource',
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)$/i,
+                type: 'asset/resource',
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        cacheDirectory: true,
                     },
-                    pngquant: {
-                      quality: [0.65, 0.90],
-                      speed: 4
-                    },
-                  }
-                }
-              ],
-          },
-          {
-            test: /\.css$/i,
-            use: ["style-loader", "css-loader", "postcss-loader"],
-          },
-      { test: /\.(js)$/, use: 'babel-loader' }
-    ]
-  },
-  output: {
-    path: __dirname +'/dist',
-    filename: 'index_bundle.js'
-  },
-  experiments: {
-    topLevelAwait: true
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-        filename: 'index.css'
-      }),
-      new HtmlWebpackPlugin({
-        inject: false,
-        template: './src/index.html',
-        filename: 'index.html'
-      })
-  ],
-    mode: 'development'
-}
+                },
+            },
+        ],
+    },
+};

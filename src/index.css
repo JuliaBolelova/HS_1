@@ -1,0 +1,23 @@
+@import "styles/vendor/normalize.css";
+@import "styles/vendor/fonts.css";
+@import "styles/blocks/breadcrumbs/breadcrumbs.css";
+@import "styles/blocks/footer/footer.css";
+@import "styles/blocks/header/header.css";
+@import "styles/blocks/icons/icons.css";
+@import "styles/blocks/header/header.css";
+@import "styles/blocks/list/list.css";
+@import "styles/blocks/navigation/navigation.css";
+@import "styles/blocks/page/page.css";
+@import "styles/blocks/section/section.css";
+
+body {
+    background: #FFFFFF;
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    width: 100vw;
+    max-width: 100%;
+    height: auto;
+    color: #000;
+    font-family: "Montserrat", "Arial Black", sans-serif;
+}

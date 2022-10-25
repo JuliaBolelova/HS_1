@@ -1,0 +1,20 @@
+@import "__about/section__about.css";
+@import "__consultation/section__consultation.css";
+@import "__group/section__group.css";
+@import "__href/section__href.css";
+@import "__list/subtitle__list.css";
+@import "__photos/section__photos.css";
+@import "__subtitle/section__subtitle.css";
+@import "__process/section__process.css";
+@import "__text/section__text.css";
+@import "__title/section__title.css";
+@import "__video/section__video.css";
+@import "__why/section__why.css";
+@import "_border/section_border_top.css";
+
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 56px 100px 120px 100px;
+}

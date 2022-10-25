@@ -1,0 +1,19 @@
+@import "__basket/header__basket.css";
+@import "__burger/header__burger.css";
+@import "__icons/header__icons.css";
+@import "__like/header__like.css";
+@import "__logo/header__logo.css";
+@import "__search/header__search.css";
+@import "__tel/header__tel.css";
+
+.header {
+    margin: 26px 63px 0 63px;
+    display: flex;
+    width: initial;
+    max-width: 100%;
+    height: max-content;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}

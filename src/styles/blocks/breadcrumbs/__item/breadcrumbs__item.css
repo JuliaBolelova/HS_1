@@ -1,0 +1,13 @@
+.breadcrumbs__item {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    margin: 0 20px 0 0;
+    padding: 14px 0 19px 0;
+    color: #4C858B;
+}
+.breadcrumbs__item::after{
+    content: ">";
+    color: #4C858B;
+    margin: 0 0 0 7px;
+}

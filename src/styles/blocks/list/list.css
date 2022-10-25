@@ -1,0 +1,9 @@
+@import "__item/list__item.css";
+@import "_bullet/list_bullet.css";
+
+.list {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    list-style-type: none;
+}

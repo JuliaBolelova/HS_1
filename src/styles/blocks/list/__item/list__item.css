@@ -1,0 +1,8 @@
+.list__item {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    margin: 15px 0 15px 0;
+    max-width: 550px;
+    padding: 0;
+}

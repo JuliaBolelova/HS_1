@@ -1,0 +1,7 @@
+@import "../__item/list__item.css";
+
+.list_bullet .list__item:before {
+    color: #EA6628;
+    content: "●";
+    padding-right: 17px;
+}

@@ -1,0 +1,14 @@
+@import "__item/breadcrumbs__item.css";
+@import "_disable/breadcrumbs_disable.css";
+
+.breadcrumbs {
+    width: 100%;
+    margin: 14px 0 19px 0;
+    border-top: #B1B1B1 solid 1px;
+    border-bottom: #B1B1B1 solid 1px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    list-style: none;
+    padding: 0;
+}

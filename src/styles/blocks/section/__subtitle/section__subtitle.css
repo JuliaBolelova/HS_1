@@ -1,0 +1,10 @@
+@import "_color/section__subtitle_color_red.css";
+@import "_size/section__subtitle_size_big.css";
+
+.section__subtitle {
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 63px;
+    margin: 0;
+    padding: 0;
+}

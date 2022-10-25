@@ -1,0 +1,9 @@
+@import "__item/footer__item.css";
+@import "__title/footer__title.css";
+@import "__text/footer__text.css";
+@import "__logo/footer__logo.css";
+@import "__line-item/footer__line-item.css";
+@import "__link/footer__link.css";
+
+.footer {
+}
